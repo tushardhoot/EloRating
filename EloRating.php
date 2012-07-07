@@ -62,12 +62,12 @@ class EloRating {
 		return $k;
 	}
 	
-    public function getScore1() {
+	public function getScore1() {
         $this->score1 = computeScore($this->rating2, $this->rating1);
 		return $this->score1;
 	}
-
-    public function getScore2() {
+	
+	public function getScore2() {
         $this->score2 = computeScore($this->rating1, $this->rating2);
 		return $this->score2;
 	}
