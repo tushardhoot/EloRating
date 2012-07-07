@@ -80,3 +80,5 @@ class EloRating {
 		return $this->rating2;
 	}
 }
+
+?>
