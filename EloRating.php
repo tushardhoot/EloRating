@@ -50,7 +50,7 @@ class EloRating {
 	}
 	
 	protected function computeScore($rating1, $rating2) {
-	    return (1 / (1 + pow(10, ($rating1 - $rating2) / 400)));
+	        return (1 / (1 + pow(10, ($rating1 - $rating2) / 400)));
 	}
 	
 	// computeK($rating)
@@ -63,12 +63,12 @@ class EloRating {
 	}
 	
 	public function getScore1() {
-        $this->score1 = computeScore($this->rating2, $this->rating1);
+                $this->score1 = computeScore($this->rating2, $this->rating1);
 		return $this->score1;
 	}
 	
 	public function getScore2() {
-        $this->score2 = computeScore($this->rating1, $this->rating2);
+                $this->score2 = computeScore($this->rating1, $this->rating2);
 		return $this->score2;
 	}
 	
