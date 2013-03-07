@@ -36,8 +36,8 @@ class EloRating {
 	// Call when you want to update the ratings (after a game, etc.)
 	// $result = ELO_RESULT_WIN or ELO_RESULT_LOSS or ELO_RESULT_TIE
 	public function setResult($result) {
-		$cscore1 = computeScore($this->rating2, $this->rating1);
-		$cscore2 = computeScore($this->rating1, $this->rating2);
+		$cscore1 = $this->computeScore($this->rating2, $this->rating1);
+		$cscore2 = $this->computeScore($this->rating1, $this->rating2);
 		if ($result == ELO_RESULT_WIN) {
 			$this->rating1 = $this->rating1 + ($this->computeK($this->rating1) * (1 - $cscore1));
 			$this->rating2 = $this->rating2 + ($this->computeK($this->rating2) * (0 - $cscore2));
