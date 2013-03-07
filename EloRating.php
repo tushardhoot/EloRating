@@ -36,16 +36,18 @@ class EloRating {
 	// Call when you want to update the ratings (after a game, etc.)
 	// $result = ELO_RESULT_WIN or ELO_RESULT_LOSS or ELO_RESULT_TIE
 	public function setResult($result) {
+		$score1 = computeScore($this->rating2, $this->rating1);
+		$score2 = computeScore($this->rating1, $this->rating2);
 		if ($result == ELO_RESULT_WIN) {
-			$this->rating1 = $this->rating1 + ($this->computeK($this->rating1) * (1 - $this->escore1));
-			$this->rating2 = $this->rating2 + ($this->computeK($this->rating2) * (0 - $this->escore2));
+			$this->rating1 = $this->rating1 + ($this->computeK($this->rating1) * (1 - $score1));
+			$this->rating2 = $this->rating2 + ($this->computeK($this->rating2) * (0 - $score2));
 		} elseif ($result == ELO_RESULT_LOSS) {
-			$this->rating1 = $this->rating1 + ($this->computeK($this->rating1) * (0 - $this->escore1));
-			$this->rating2 = $this->rating2 + ($this->computeK($this->rating2) * (1 - $this->escore2));
+			$this->rating1 = $this->rating1 + ($this->computeK($this->rating1) * (0 - $score1);
+			$this->rating2 = $this->rating2 + ($this->computeK($this->rating2) * (1 - $score2));
 		} else {
 			// Assume tie
-			$this->rating1 = $this->rating1 + ($this->computeK($this->rating1) * (0.5 - $this->escore1));
-			$this->rating2 = $this->rating2 + ($this->computeK($this->rating2) * (0.5 - $this->escore2));
+			$this->rating1 = $this->rating1 + ($this->computeK($this->rating1) * (0.5 - $score1));
+			$this->rating2 = $this->rating2 + ($this->computeK($this->rating2) * (0.5 - $score2));
 		}
 	}
 	
